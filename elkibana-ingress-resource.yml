@@ -1,0 +1,15 @@
+ apiVersion: extensions/v1beta1
+ kind: Ingress
+ metadata:
+   name: elkibana-ingress
+   annotations:
+     ingress.bluemix.net/rewrite-path: "serviceName=elkibana rewrite=/app/kibana"
+ spec:
+   rules:
+   - host: wsaservice.us-east.containers.appdomain.cloud
+     http:
+       paths:
+       - path: /mypath
+         backend:
+           serviceName: elkibana
+           servicePort: 5602
