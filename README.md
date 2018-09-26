@@ -29,14 +29,18 @@ mycluster.us-east.containers.appdomain.cloud
 4. Create an **Ingress.yml** for your application service.<br/>
    Note: If the service redirects to an another link then mention it under annotation so that it can be rewritten.<br>
    
-`.
+```
+ .
  .
  .
  metadata:
    name: elkibana-ingress
    annotations:
      ingress.bluemix.net/rewrite-path: "serviceName=elkibana rewrite=/app/kibana"
-`
+.
+.
+.
+```
   Here, our application takes us to `/app/kibana` path when we access it normally. In order to make it accessable at `/` to above definition is required.
   
 5. In the `.yml`, especify the IBM-provided host and the path that you want to append at the end of that host. This will explicitly redirect traffic to your specified path.
